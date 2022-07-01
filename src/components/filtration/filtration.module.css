@@ -1,0 +1,8 @@
+.filtration_form {
+    display: flex;
+}
+
+.select_form {
+    width: 200px;
+    margin: 10px;
+}
