@@ -1,7 +1,7 @@
 {
     "table_data": [
       { "date": "01.07.2022", "name": "Azamat", "amount": "100000", "distance": "2000" },
-      { "date": "02.07.2022", "name": "Azamat", "amount": "100000", "distance": "2000" },
-      { "date": "03.07.2022", "name": "Azamat", "amount": "100000", "distance": "2000" }
+      { "date": "02.07.2022", "name": "Daulet", "amount": "100000", "distance": "2000" },
+      { "date": "03.07.2022", "name": "Shingis", "amount": "100000", "distance": "2000" }
     ]
   }

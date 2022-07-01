@@ -15,11 +15,17 @@ const Filtration = () => {
             <div className={style.select_form}>
                 <select class="form-select" aria-label="Default select example">
                     <option selected>Сomparison method</option>
-                    <option value="1">Includes</option>
+                    <option value="1">includes</option>
                     <option value="2">equals</option>
                     <option value="3">more than</option>
                     <option value="3">less than</option>
                 </select>
+            </div>
+            <div className={style.input_form}>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Filtration value" aria-label="Filtration value" aria-describedby="button-addon2" />
+                    <button onClick={()=>{}} class="btn btn-outline-secondary" type="button" id="button-addon2">Filter</button>
+                </div>
             </div>
         </div>
     )

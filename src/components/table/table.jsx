@@ -1,10 +1,10 @@
-import React from "react";
+import React  from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import style from './table.module.css';
-import Filtration from "../filtration/filtration";
 
-const Table = ({data}) => {
-    return(
+const Table = ({ data }) => {
+
+    return (
         <div className={style.table_container}>
             <table className="table table-dark table-striped">
                 <thead>
@@ -16,10 +16,10 @@ const Table = ({data}) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {data.map((item) =>{
-                        return(
+                    {data.map((item) => {
+                        return (
                             <tr key={item.date}>
-                                <td scope="row">{item.date}</td>
+                                <td>{item.date}</td>
                                 <td>{item.name}</td>
                                 <td>{item.amount}</td>
                                 <td>{item.distance}</td>
@@ -28,7 +28,6 @@ const Table = ({data}) => {
                     })}
                 </tbody>
             </table>
-            <Filtration />
         </div>
     )
 }
