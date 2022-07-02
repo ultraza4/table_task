@@ -1,12 +1,11 @@
-import React  from "react";
+import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import style from './table.module.css';
-import Pagination from "../pagination";
 
-const Table = ({ data, rowsPerPage, totalRows}) => {
-    const pageNumbers =[];
-    
-    for(let i = 0; i <= Math.ceil(totalRows / rowsPerPage); i++){
+const Table = ({ data, rowsPerPage, totalRows }) => {
+    const pageNumbers = [];
+
+    for (let i = 0; i <= Math.ceil(totalRows / rowsPerPage); i++) {
         pageNumbers.push(i);
     }
 

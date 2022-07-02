@@ -1,6 +1,6 @@
 import './App.css';
 import Table from './components/table/table';
-import Table2 from './components/table/table2';
+// import Table2 from './components/table/table2';
 import Pagination from './components/pagination';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
@@ -10,11 +10,11 @@ function App() {
   const [tableData, setTableData] = useState([]);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [rowsPerPage] = useState(8);
 
   const indexOfLastRow = currentPage * rowsPerPage;
   const indexOfFirstRow = indexOfLastRow - rowsPerPage;
-  const currentRows = tableData.slice(indexOfFirstRow,indexOfLastRow);
+  const currentRows = tableData.slice(indexOfFirstRow, indexOfLastRow);
 
   const [query, setQuery] = useState("");
   const [selectedColumn, setSelectedColumn] = useState('name');
@@ -23,28 +23,28 @@ function App() {
   useEffect(() => {
     axios.get(baseURL).then((res) => {
       setTableData(res.data);
-      console.log(tableData.length);
     })
   }, [])
 
   function filter(rows) {
-    if (selectedMethod === "includes") {
+
+    if (selectedMethod === "includes" && selectedColumn === "name") {
       return rows.filter((row) => row[selectedColumn].toLowerCase().indexOf(query) > -1)
     }
-    if (selectedMethod === "more" && (selectedColumn == "amount" || selectedColumn == "distance")) {
-      if (query == "") setQuery("0");
+    if (selectedMethod === "more" && (selectedColumn === "amount" || selectedColumn === "distance")) {
+      if (query === "") setQuery("0");
       return rows.filter((row) => row[selectedColumn] > parseInt(query))
     }
-    if (selectedMethod === "less" && (selectedColumn == "amount" || selectedColumn == "distance")) {
-      if (query == "") setQuery("0");
+    if (selectedMethod === "less" && (selectedColumn === "amount" || selectedColumn === "distance")) {
+      if (query === "") setQuery("0");
       return rows.filter((row) => row[selectedColumn] < parseInt(query))
     }
   }
 
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   return (
     <div className="App">
-      <Table data={filter(currentRows)} />
-      <Pagination rowsPerPage = {rowsPerPage} totalRows = {tableData.length}/>
       <h4>Filtration</h4>
       <div className="filtration_form">
         <div className="select_form">
@@ -75,6 +75,8 @@ function App() {
           </div>
         </div>
       </div>
+      <Table data={filter(currentRows)} />
+      <Pagination rowsPerPage={rowsPerPage} totalRows={tableData.length} paginate={paginate} />
     </div>
   );
 }
