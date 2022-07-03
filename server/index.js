@@ -17,6 +17,7 @@ app.get("/distance", async(req,res) => {
     }
 })
 
+// коммандой node index.js запускаем сервер с БД
 app.listen(4000, () =>{
     console.log("server has started on port 4000");
 });
