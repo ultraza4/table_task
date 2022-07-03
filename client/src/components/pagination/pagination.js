@@ -23,6 +23,7 @@ const Pagination = ({ rowsPerPage, totalRows, paginate, currentPage }) => {
             </nav>
         </div>
     )
+
 }
 
 export default Pagination;
