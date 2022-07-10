@@ -20,13 +20,13 @@ router.get("/distance", async (req, res) => {
    }
    if (column === "amount" || column === "distance") {
       if (method === "includes") {
-         sqlQuery = `SELECT * FROM distance WHERE ${column} iLIKE '%${input}%'`
+         sqlQuery = `SELECT * FROM distance WHERE CAST(${column}  AS TEXT) iLIKE '%${input}%'`
       } else if (method === "equals") {
-         if (input !== "") sqlQuery = `SELECT * FROM distance WHERE ${column} = '${input}'`
+         if (input !== "") sqlQuery = `SELECT * FROM distance WHERE ${column} = ${input}`
       } else if (method === "more") {
-         if (input !== "") sqlQuery = `SELECT * FROM distance WHERE ${column} > '${input}'`
+         if (input !== "") sqlQuery = `SELECT * FROM distance WHERE ${column} > ${input}`
       } else if (method === "less") {
-         if (input !== "") sqlQuery = `SELECT * FROM distance WHERE ${column} < '${input}'`
+         if (input !== "") sqlQuery = `SELECT * FROM distance WHERE ${column} < ${input}`
       }
    }
 
