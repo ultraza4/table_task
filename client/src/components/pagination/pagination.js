@@ -1,10 +1,10 @@
 import React from "react";
 import style from "./pagination.module.css";
-const Pagination = ({ rowsPerPage, totalRows, paginate, currentPage }) => {
+const Pagination = ({ numberOfPages, paginate, currentPage }) => {
 
     // обьявляем массив страниц и передаем туда значения путем исчесления 
     const pageNumbers = [];
-    for (let i = 1; i <= Math.ceil(totalRows / rowsPerPage); i++) {
+    for (let i = 1; i <= numberOfPages; i++) {
         pageNumbers.push(i);
     }
 
